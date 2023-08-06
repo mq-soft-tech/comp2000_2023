@@ -25,7 +25,8 @@ public class Main extends JFrame {
         }
 
         public void paint(Graphics g) {
-            g.setColor(color.white);
+            //sets colour and outline of cells. Change Color.white to color for randomised colors from createGrid.
+            g.setColor(Color.white);
             g.fillRect(x, y, size, size);
             g.setColor(Color.black);
             g.drawRect(x, y, size, size);
@@ -57,6 +58,7 @@ public class Main extends JFrame {
             int cMax = 256;
             for (int i = 0; i < xAmount; i++) {
                 for (int j = 0; j < yAmount; j++) {
+                    //randomly picks r,g,b values for the cell
                     int r = randomCol.nextInt(cMax - cMin) + cMin;
                     int g = randomCol.nextInt(cMax - cMin) + cMin;
                     int b = randomCol.nextInt(cMax - cMin) + cMin;
@@ -66,9 +68,8 @@ public class Main extends JFrame {
             }
         }
 
-        @Override
+
         public void paint(Graphics g) {
-            super.paintComponent(g);
             for (int i = 0; i < xAmount; i++) {
                 for (int j = 0; j < yAmount; j++) {
                     cells[i][j].paint(g);
@@ -81,18 +82,20 @@ public class Main extends JFrame {
             }
         }
 
+        //checks the mouse position and sends coordinates to MouseOverCell function
         private class MouseListen extends MouseAdapter {
 
-            @Override
             public void mouseMoved(MouseEvent e) {
                 int mouseX = e.getX();
                 int mouseY = e.getY();
 
                 mouseOverCell = MouseOverCell(mouseX, mouseY);
+                //paints the grid again with the new information of mouseOverCell.
                 repaint();
             }
         }
 
+        //returns the cell the mouse is hovering over based on the x and y values of the mouse and checked against the size of the cells and location
         private Cell MouseOverCell(int x, int y) {
             for (int i = 0; i < xAmount; i++) {
                 for (int j = 0; j < yAmount; j++) {
