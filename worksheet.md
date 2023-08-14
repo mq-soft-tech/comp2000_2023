@@ -14,7 +14,7 @@ And answer the following questions about them:
   * These repositories are at two different websites - github and bitbucket - what are these sites?  What service do they provide? Which is better?
   A: bithub is designed so that it revolves around public code and bitbucket is designed mainly for private projects.
   * Who made the last commit to repository A?
-  A: mathew roberts.
+  A: mathew roberts. 
   * Who made the first commit to repository A?
   A: john mountjoy.
   * Who made the first and last commits to repository B?
@@ -35,4 +35,5 @@ Modify the application so that instead it prints
 ~~~~~
 Red vs. Blue
 ~~~~~
+
 
