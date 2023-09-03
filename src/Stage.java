@@ -28,7 +28,7 @@ public class Stage {
       for(Actor a: actors) {
         if(!a.isHuman()) {
           List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
-          Cell nextLoc = a.strat.chooseNextLoc(possibleLocs);
+          Cell nextLoc = a.strat.apply(possibleLocs);
           a.setLocation(nextLoc);
         }
       }
