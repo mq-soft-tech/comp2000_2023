@@ -4,7 +4,11 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+<<<<<<< HEAD
 import java.util.Random;
+=======
+
+>>>>>>> ae72df6faaf67014102991abcfdf88627f85e5bc
 public class Stage {
   Grid grid;
   List<Actor> actors;
@@ -32,6 +36,7 @@ public class Stage {
     if(currentState == State.BotMoving) {
       for(Actor a: actors) {
         if(!a.isHuman()) {
+<<<<<<< HEAD
           // List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
           if () {
             move;
@@ -41,6 +46,11 @@ public class Stage {
           
           // int moveBotChooses = (new Random()).nextInt(possibleLocs.size());
           // a.setLocation(possibleLocs.get(moveBotChooses));
+=======
+          List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
+          Cell nextLoc = a.strat.chooseNextLoc(possibleLocs);
+          a.setLocation(nextLoc);
+>>>>>>> ae72df6faaf67014102991abcfdf88627f85e5bc
         }
       }
       currentState = State.ChoosingActor;
@@ -85,6 +95,8 @@ public class Stage {
       g.drawString(Character.toString(a.loc.col) + Integer.toString(a.loc.row), valueIndent, yLoc+vTab);
       g.drawString("artificiality:", labelIndent, yLoc+2*vTab);
       g.drawString(a.isHuman() ? "Human" : "Bot", valueIndent, yLoc+2*vTab);
+      g.drawString("strategy:", labelIndent, yLoc+3*vTab);
+      g.drawString(a.strat.toString(), valueIndent, yLoc+3*vTab);
     }    
   }
 
