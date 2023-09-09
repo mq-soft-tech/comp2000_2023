@@ -4,12 +4,17 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+<<<<<<< HEAD
+import java.util.Random;
+=======
 
+>>>>>>> ae72df6faaf67014102991abcfdf88627f85e5bc
 public class Stage {
   Grid grid;
   List<Actor> actors;
   List<Cell> cellOverlay;
   Optional<Actor> actorInAction;
+  MoveBehaviours move;
 
   enum State {ChoosingActor, SelectingNewLocation, BotMoving}
   State currentState;
@@ -21,15 +26,31 @@ public class Stage {
     actorInAction = Optional.empty();
     currentState = State.ChoosingActor;
   }
-
+  
+  /**
+   * @param g
+   * @param mouseLoc
+   */
   public void paint(Graphics g, Point mouseLoc) {
     // do we have AI moves to make?
     if(currentState == State.BotMoving) {
       for(Actor a: actors) {
         if(!a.isHuman()) {
+<<<<<<< HEAD
+          // List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
+          if () {
+            move;
+          } else {
+            move;
+          }
+          
+          // int moveBotChooses = (new Random()).nextInt(possibleLocs.size());
+          // a.setLocation(possibleLocs.get(moveBotChooses));
+=======
           List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
           Cell nextLoc = a.strat.chooseNextLoc(possibleLocs);
           a.setLocation(nextLoc);
+>>>>>>> ae72df6faaf67014102991abcfdf88627f85e5bc
         }
       }
       currentState = State.ChoosingActor;

@@ -53,7 +53,7 @@ public class Main extends JFrame {
       this.setVisible(true);
     }
 
-    public void run() {
+    public void run() { // Task 16
       while(true) {
         Instant startTime = Instant.now();
         repaint();

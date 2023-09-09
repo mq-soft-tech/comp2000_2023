@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+import java.util.Random;
+
+public interface RandomMove {
+    // int moveBotChooses = (new Random()).nextInt(possibleLocs.size());
+    // a.setLocation(possibleLocs.get(moveBotChooses));
+=======
 import java.util.List;
 import java.util.Random;
 
@@ -11,4 +18,5 @@ public class RandomMove implements MoveStrategy {
   public String toString() {
     return "random movement";
   }
+>>>>>>> ae72df6faaf67014102991abcfdf88627f85e5bc
 }
