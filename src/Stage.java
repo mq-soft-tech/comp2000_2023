@@ -77,6 +77,10 @@ public class Stage {
       g.drawString("strategy:", labelIndent, yLoc+3*vTab);
       g.drawString(a.strat.toString(), valueIndent, yLoc+3*vTab);
     }    
+    yLoc = yLoc + 3*blockVT;
+    Motif torch = new Motif("assets/torch.png");
+    Float phase = 0.5f;
+    torch.draw(g, labelIndent, yLoc, Color.getHSBColor(phase, 0.5f, 1.0f));
   }
 
   public List<Cell> getClearRadius(Cell from, int size) {
