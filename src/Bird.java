@@ -4,31 +4,31 @@ import java.util.ArrayList;
 
 public class Bird extends Actor {
   public Bird(Cell inLoc, boolean isHuman) {
-    super(inLoc, Color.GREEN, isHuman, 3);
+    initActor(inLoc, Color.GREEN, isHuman, 3);
   }
 
   // Bird design courtesy of Sawyer James Rush
   protected void setPoly() {
     display = new ArrayList<Polygon>();
     Polygon body = new Polygon();
-    body.addPoint(loc.x + 7, loc.y + 7);
-    body.addPoint(loc.x + 15, loc.y + 5);
-    body.addPoint(loc.x + 22, loc.y + 30);
-    body.addPoint(loc.x + 10, loc.y + 13);
-    body.addPoint(loc.x + 12, loc.y + 7);
+    body.addPoint(getLocation().x + 7, getLocation().y + 7);
+    body.addPoint(getLocation().x + 15, getLocation().y + 5);
+    body.addPoint(getLocation().x + 22, getLocation().y + 30);
+    body.addPoint(getLocation().x + 10, getLocation().y + 13);
+    body.addPoint(getLocation().x + 12, getLocation().y + 7);
     Polygon wing1 = new Polygon();
-    wing1.addPoint(loc.x + 13, loc.y + 12);
-    wing1.addPoint(loc.x + 17, loc.y + 18);
-    wing1.addPoint(loc.x + 29, loc.y + 10);
+    wing1.addPoint(getLocation().x + 13, getLocation().y + 12);
+    wing1.addPoint(getLocation().x + 17, getLocation().y + 18);
+    wing1.addPoint(getLocation().x + 29, getLocation().y + 10);
     Polygon wing2 = new Polygon();
-    wing2.addPoint(loc.x + 13, loc.y + 12);
-    wing2.addPoint(loc.x + 17, loc.y + 18);
-    wing2.addPoint(loc.x + 24, loc.y + 7);
+    wing2.addPoint(getLocation().x + 13, getLocation().y + 12);
+    wing2.addPoint(getLocation().x + 17, getLocation().y + 18);
+    wing2.addPoint(getLocation().x + 24, getLocation().y + 7);
     Polygon tail = new Polygon();
-    tail.addPoint(loc.x + 21, loc.y + 26);
-    tail.addPoint(loc.x + 22, loc.y + 30);
-    tail.addPoint(loc.x + 27, loc.y + 32);
-    tail.addPoint(loc.x + 26, loc.y + 20);
+    tail.addPoint(getLocation().x + 21, getLocation().y + 26);
+    tail.addPoint(getLocation().x + 22, getLocation().y + 30);
+    tail.addPoint(getLocation().x + 27, getLocation().y + 32);
+    tail.addPoint(getLocation().x + 26, getLocation().y + 20);
     display.add(body);
     display.add(wing1);
     display.add(wing2);

@@ -4,15 +4,15 @@ import java.awt.Polygon;
 import java.util.List;
 
 public abstract class Actor {
-  Color color;
-  Cell loc;
-  List<Polygon> display;
-  boolean humanPlayer;
-  int moves;
+  private Color color;
+  private Cell loc;
+  protected List<Polygon> display;
+  private boolean humanPlayer;
+  private int moves;
   int turns;
   MoveStrategy strat;
 
-  protected Actor(Cell inLoc, Color inColor, Boolean isHuman, int inMoves) {
+  protected void initActor(Cell inLoc, Color inColor, Boolean isHuman, int inMoves) {
     setLocation(inLoc);
     color = inColor;
     humanPlayer = isHuman;
@@ -22,8 +22,8 @@ public abstract class Actor {
   }
 
   public void paint(Graphics g) {
-    for(Polygon p: display) {
-      g.setColor(color);
+    for(Polygon p: getPoly()) {
+      g.setColor(getColor());
       g.fillPolygon(p);
       g.setColor(Color.GRAY);
       g.drawPolygon(p);
@@ -31,6 +31,10 @@ public abstract class Actor {
   }
 
   protected abstract void setPoly();
+
+  protected List<Polygon> getPoly() {
+    return display;
+  }
 
   public boolean isHuman() {
     return humanPlayer;
@@ -44,5 +48,17 @@ public abstract class Actor {
       strat = new LeftMostMove();
     }
     setPoly();
+  }
+
+  public int getMoves() {
+    return moves;
+  }
+
+  public Color getColor() {
+    return color;
+  }
+
+  public Cell getLocation() {
+    return loc;
   }
 }
